@@ -1,0 +1,6 @@
+framework module Pods_lhcpTests {
+  umbrella header "Pods-lhcpTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

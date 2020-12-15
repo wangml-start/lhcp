@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-lhcp-lhcpUITests/Pods-lhcp-lhcpUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
+${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework
