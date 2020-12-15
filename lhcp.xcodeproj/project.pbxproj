@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		565297732587BFE900012732 /* main_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 565297722587BFE900012732 /* main_1.png */; };
 		5655CFE92589159100C23950 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5655CFE82589159100C23950 /* CircleImage.swift */; };
-		5659679E257E06D300EE2FCA /* NavigationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5659679D257E06D300EE2FCA /* NavigationConfigurator.swift */; };
-		565967AB257E07C600EE2FCA /* SystemColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565967AA257E07C600EE2FCA /* SystemColors.swift */; };
 		565967B1257E0C4000EE2FCA /* CommonUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565967B0257E0C4000EE2FCA /* CommonUtil.swift */; };
 		565967C1257E39F900EE2FCA /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565967C0257E39F900EE2FCA /* LoginService.swift */; };
 		565A187F2583535200F338AC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A187E2583535200F338AC /* User.swift */; };
@@ -34,7 +32,6 @@
 		565FB139257DDF0A0042D696 /* lhcpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565FB138257DDF0A0042D696 /* lhcpUITests.swift */; };
 		565FB14B257DE02D0042D696 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565FB14A257DE02D0042D696 /* LoginView.swift */; };
 		565FB153257DE05D0042D696 /* ForgetPwsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565FB152257DE05D0042D696 /* ForgetPwsView.swift */; };
-		565FB159257DE10C0042D696 /* CTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565FB158257DE10C0042D696 /* CTextField.swift */; };
 		566465EE2580BBF200EFCCAA /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566465ED2580BBF200EFCCAA /* ColorSet.swift */; };
 		56EA7DB125888E20005B9320 /* StockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EA7DB025888E20005B9320 /* StockView.swift */; };
 		56EA7DC1258898CD005B9320 /* KLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EA7DC0258898CD005B9320 /* KLineView.swift */; };
@@ -77,7 +74,6 @@
 		565297722587BFE900012732 /* main_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_1.png; sourceTree = "<group>"; };
 		5655CFE82589159100C23950 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircleImage.swift; path = lhcp/views/comm/CircleImage.swift; sourceTree = SOURCE_ROOT; };
 		5659679D257E06D300EE2FCA /* NavigationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConfigurator.swift; sourceTree = "<group>"; };
-		565967AA257E07C600EE2FCA /* SystemColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemColors.swift; sourceTree = "<group>"; };
 		565967B0257E0C4000EE2FCA /* CommonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
 		565967C0257E39F900EE2FCA /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		565A187E2583535200F338AC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -107,7 +103,6 @@
 		565FB13A257DDF0A0042D696 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		565FB14A257DE02D0042D696 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		565FB152257DE05D0042D696 /* ForgetPwsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPwsView.swift; sourceTree = "<group>"; };
-		565FB158257DE10C0042D696 /* CTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTextField.swift; sourceTree = "<group>"; };
 		566465ED2580BBF200EFCCAA /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
 		56EA7DB025888E20005B9320 /* StockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockView.swift; sourceTree = "<group>"; };
 		56EA7DC0258898CD005B9320 /* KLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLineView.swift; sourceTree = "<group>"; };
@@ -228,7 +223,7 @@
 			path = res;
 			sourceTree = "<group>";
 		};
-		565C34A02587AC5800A202CF /* comm */ = {
+		565C34A02587AC5800A202CF /* comp */ = {
 			isa = PBXGroup;
 			children = (
 				5655CFE82589159100C23950 /* CircleImage.swift */,
@@ -311,16 +306,6 @@
 				565FB152257DE05D0042D696 /* ForgetPwsView.swift */,
 			);
 			path = login;
-			sourceTree = "<group>";
-		};
-		565FB157257DE0B00042D696 /* comp */ = {
-			isa = PBXGroup;
-			children = (
-				565FB158257DE10C0042D696 /* CTextField.swift */,
-				5659679D257E06D300EE2FCA /* NavigationConfigurator.swift */,
-				565967AA257E07C600EE2FCA /* SystemColors.swift */,
-			);
-			path = comp;
 			sourceTree = "<group>";
 		};
 		56EA7DD72588A922005B9320 /* service */ = {
