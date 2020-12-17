@@ -63,6 +63,10 @@ struct MyColor{
     
     public static var line_down = Color.fromRGB(rgb: 0x05870A)
     public static var line_up = Color.fromRGB(rgb: 0xB81206)
+    
+    public static var kline_ave_5 = Color.fromRGB(rgb: 0x756D7E)
+    public static var kline_ave_10 = Color.fromRGB(rgb: 0xFFC800)
+    public static var kline_ave_20 = Color.fromRGB(rgb: 0xE81689)
 
 }
 

@@ -72,7 +72,7 @@ class KlineGroup{
     }
     
     func calcAverage(days:Int) -> CFloat{
-        let blankVal:CFloat = 1.0
+        let blankVal:CFloat = -1
         var temp:[CFloat] = []
         if (5 == days) {
             if (ks5.count < 5) {
@@ -103,7 +103,7 @@ class KlineGroup{
         let length = nodes.count
         var i:Int = 0
         while(i < length){
-            let kline = nodes[i]
+            var kline = nodes[i]
             ks5.append(kline.close)
             ks10.append(kline.close)
             ks20.append(kline.close)
@@ -117,14 +117,14 @@ class KlineGroup{
             if (ks20.count > 20) {
                 ks20.removeFirst()
             }
-            kline.avg5 = calcAverage(days: 5);
-            kline.avg10 = calcAverage(days: 10);
-            kline.avg20 = calcAverage(days: 20);
+            nodes[i].avg5 = calcAverage(days: 5);
+            nodes[i].avg10 = calcAverage(days: 10);
+            nodes[i].avg20 = calcAverage(days: 20);
             
             
-            kline.dif = (map["dif"]?[i])!
-            kline.dea = (map["dea"]?[i])!
-            kline.macd = (map["macd"]?[i])!
+            nodes[i].dif = (map["dif"]?[i])!
+            nodes[i].dea = (map["dea"]?[i])!
+            nodes[i].macd = (map["macd"]?[i])!
             
             i += 1
         }

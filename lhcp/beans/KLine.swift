@@ -5,19 +5,19 @@
 //  Created by V-MAC10 on 2020/12/15.
 //
 
-class KLine{
+struct KLine: Hashable {
     var high:CFloat
     var low:CFloat
     var open:CFloat
     var close:CFloat
     var lastClose:CFloat
     var volume:CFloat
-    var avg5:CFloat = 0
-    var avg10:CFloat = 0
-    var avg20:CFloat = 0
-    var dif:CFloat = 0
-    var dea:CFloat = 0
-    var macd:CFloat = 0
+    var avg5:CFloat = -1
+    var avg10:CFloat = -1
+    var avg20:CFloat = -1
+    var dif:CFloat = -100
+    var dea:CFloat = -100
+    var macd:CFloat = -100
     var isOpen:Bool = false
 
     init(high:CFloat, low:CFloat, open:CFloat, close:CFloat, lsclose:CFloat, volume:CFloat){

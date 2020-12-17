@@ -66,6 +66,42 @@ struct SingelK: View {
     }
 }
 
+struct VolumeView: View {
+    var pts:KlinePoints
+    
+    var bottomY:CGFloat {
+        return pts.volBPt.y
+    }
+    var kWidth: CGFloat {
+        return (pts.highPt.x - pts.openPt.x) * 2
+    }
+    var lWidth:CGFloat {
+        return KLineStyle.kLineBold
+    }
+
+    var body: some View {
+        GeometryReader { geometry in
+            if(pts.state >= 0){
+                Path { path in
+                    path.move(to: pts.volumePt)
+                    path.addLine(to: CGPoint(x: pts.volumePt.x, y: bottomY))
+                    path.addLine(to: CGPoint(x: pts.volumePt.x+kWidth, y: bottomY))
+                    path.addLine(to: CGPoint(x: pts.volumePt.x+kWidth, y: pts.volumePt.y))
+                    path.addLine(to: pts.volumePt)
+                }.stroke(MyColor.line_up, style: StrokeStyle(lineWidth: lWidth,lineCap: .round, lineJoin: .round))
+            }else if (pts.state < 0){
+                Path { path in
+                    path.move(to: pts.volumePt)
+                    path.addLine(to: CGPoint(x: pts.volumePt.x, y: bottomY))
+                    path.addLine(to: CGPoint(x: pts.volumePt.x+kWidth, y: bottomY))
+                    path.addLine(to: CGPoint(x: pts.volumePt.x+kWidth, y: pts.volumePt.y))
+                }.fill(MyColor.line_down)
+
+            }
+        }
+    }
+}
+
 
 struct KLineView: View {
     @State var chartData:KlineGroup
@@ -81,8 +117,6 @@ struct KLineView: View {
     @State var volmeHeight:CGFloat = 0
     @State var macdHeight:CGFloat = 0
     
-    @State var prices:[String] = []
-    
     var chartPts:[KlinePoints] {
         let kCount = chartData.nodes.count
         var startIndex = 0
@@ -95,9 +129,10 @@ struct KLineView: View {
         var pts:[KlinePoints] = []
         var startx:CGFloat = 0
         
+        
         let priceDelta = chartData.mYMax - chartData.mYMin
         let punit = (chartHeight-KLineStyle.chartSpace*2) / CGFloat(priceDelta)
-        let vunit = (volmeHeight-KLineStyle.volSpace) / CGFloat(chartData.mMaxYVolume)
+        let vunit = (volmeHeight-KLineStyle.volSpace*2) / CGFloat(chartData.mMaxYVolume)
         //        let munit = (macdHeight-KLineStyle.macdSpace) / CGFloat(chartData.mYMaxMacd)
         
         for (nIndex, node) in chartData.nodes.enumerated() {
@@ -108,14 +143,36 @@ struct KLineView: View {
             startx = KLineStyle.mBarSpace * CGFloat(nStart + 1) + KLineStyle.kWidth * CGFloat(nStart)
             let half = KLineStyle.kWidth / 2
             let ySpace = KLineStyle.chartSpace
-            pts.append(KlinePoints(
+            var kp = KlinePoints(
                 id: nStart, openPt: CGPoint(x: startx, y: CGFloat((chartData.mYMax - node.open)) * punit+ySpace),
                 closePt: CGPoint(x: startx, y: CGFloat((chartData.mYMax - node.close)) * punit+ySpace),
                 highPt: CGPoint(x: startx + CGFloat(half), y: CGFloat((chartData.mYMax - node.high)) * punit+ySpace),
                 lowPt: CGPoint(x: startx + CGFloat(half), y: CGFloat((chartData.mYMax - node.low)) * punit+ySpace),
                 state: node.state,
-                volumePt: CGPoint(x: startx, y: CGFloat((chartData.mYMax - node.volume)) * vunit)
-            ))
+                isOpen: node.isOpen,
+                volumePt: CGPoint(x: startx, y: CGFloat((chartData.mMaxYVolume - node.volume)) * vunit+chartHeight+KLineStyle.volSpace),
+                volBPt: CGPoint(x: startx, y: chartHeight + volmeHeight)
+            )
+            
+            //均线
+            if(node.avg5 != -1){
+                kp.line5Pt = CGPoint(x: startx + CGFloat(half),
+                                     y: CGFloat((chartData.mYMax - node.avg5)) * punit+ySpace)
+            }
+            if(node.avg10 != -1){
+                kp.line10Pt = CGPoint(x: startx + CGFloat(half),
+                                     y: CGFloat((chartData.mYMax - node.avg10)) * punit+ySpace)
+            }
+            if(node.avg20 != -1){
+                kp.line20Pt = CGPoint(x: startx + CGFloat(half),
+                                     y: CGFloat((chartData.mYMax - node.avg20)) * punit+ySpace)
+            }
+            
+            
+            //macd
+            
+            
+            pts.append(kp)
         }
         
         return pts
@@ -139,7 +196,7 @@ struct KLineView: View {
                             endPt: CGPoint(x: endx, y: y),
                             price: price))
         }
-        print(lines)
+        //print(lines)
         return lines
     }
     
@@ -157,6 +214,7 @@ struct KLineView: View {
                     path.addLine(to: linePts[index].endPt)
                 }.stroke(Color.gray, style: StrokeStyle(lineWidth:0.3))
                 
+                //价格线
                 Text(linePts[index].price)
                     .font(FontSet.font10)
                     .offset(x: linePts[index].endPt.x - KLineStyle.rightLabelWidth, y: (index == 4) ? linePts[index].endPt.y-15 : linePts[index].endPt.y+2)
@@ -164,9 +222,38 @@ struct KLineView: View {
             }
             
             //绘制KLine
-            ForEach(chartPts) { pt in
-                SingelK(pts: pt)
+            ForEach(0..<chartPts.count) { index in
+                SingelK(pts: chartPts[index])
+                
+                //均线
+                if (index-1 >= 0 && chartPts[index-1].line5Pt != nil) {
+                    Path { path in
+                        path.move(to: chartPts[index-1].line5Pt!)
+                        path.addLine(to: chartPts[index].line5Pt!)
+                    }.stroke(MyColor.kline_ave_5, style: StrokeStyle(lineWidth: KLineStyle.kLineBold))
+
+                }
+                if (index-1 >= 0 && chartPts[index-1].line10Pt != nil) {
+                    Path { path in
+                        path.move(to: chartPts[index-1].line10Pt!)
+                        path.addLine(to: chartPts[index].line10Pt!)
+                    }.stroke(MyColor.kline_ave_10, style: StrokeStyle(lineWidth: KLineStyle.kLineBold))
+
+                }
+                if (index-1 >= 0 && chartPts[index-1].line20Pt != nil) {
+                    Path { path in
+                        path.move(to: chartPts[index-1].line20Pt!)
+                        path.addLine(to: chartPts[index].line20Pt!)
+                    }.stroke(MyColor.kline_ave_20, style: StrokeStyle(lineWidth: KLineStyle.kLineBold))
+
+                }
+                
+                //成交量
+                VolumeView(pts: chartPts[index])
+                
             }
+            
+            
             
             .onAppear {
                 let viewHeight = geometry.size.height
@@ -210,8 +297,10 @@ struct KlinePoints:Identifiable {
     var highPt:CGPoint
     var lowPt:CGPoint
     var state:Int
+    var isOpen:Bool
     
     var volumePt:CGPoint
+    var volBPt:CGPoint
     
     var line5Pt:CGPoint?
     var line10Pt:CGPoint?
@@ -220,6 +309,7 @@ struct KlinePoints:Identifiable {
     var difPt:CGPoint?
     var deaPt:CGPoint?
     var macdPt:CGPoint?
+    var macdBPt:CGPoint?
     
 }
 struct PriceLines:Identifiable{
@@ -230,8 +320,8 @@ struct PriceLines:Identifiable{
 }
 
 struct KLineStyle {
-    static let mBarSpace:CGFloat = 3
-    static let kLineBold:CGFloat = 0.8
+    static let mBarSpace:CGFloat = 2.8
+    static let kLineBold:CGFloat = 0.9
     static let rightLabelWidth:CGFloat = 20
     
     /**
@@ -239,12 +329,13 @@ struct KLineStyle {
      */
     static let kWidth:CGFloat = 6
     
+    static let chartViewRate:CGFloat = 0.5
     static let chartRate:CGFloat = 0.6
     static let volRate:CGFloat = 0.2
     static let macdRate:CGFloat = 0.2
     
     static let chartSpace:CGFloat = 5
-    static let volSpace:CGFloat = 5
-    static let macdSpace:CGFloat = 5
+    static let volSpace:CGFloat = 2.5
+    static let macdSpace:CGFloat = 2.5
     
 }

@@ -37,4 +37,6 @@ extension StockView{
             self.loadedChart = true
         }
     }
+    
+   
 }

@@ -52,8 +52,8 @@ struct StockView: View {
             .frame(width:UIScreen.main.bounds.width,height: 40)
             
             if(loadedChart){
-                KLineView(chartData: tradeManager!.group!).frame(height: UIScreen.main.bounds.height * 0.5)
-                    
+                KLineView(chartData: tradeManager!.group!)
+                .frame(height: UIScreen.main.bounds.height * KLineStyle.chartViewRate)
             }
             
             Spacer()
@@ -63,7 +63,7 @@ struct StockView: View {
             self.tips = "正在请求数据。。。"
             self.loadKline()
         }
-//        .navigationBarHidden(true)
+        //        .navigationBarHidden(true)
         .toast(isShow: $showTip, info: tips)
     }
     
