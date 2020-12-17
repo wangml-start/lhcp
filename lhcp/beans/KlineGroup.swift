@@ -100,6 +100,10 @@ class KlineGroup{
     
     func calcAverageMACD() {
         let map = MacdCalcutor.MACD(s: 12, l: 26, mid: 9, list: nodes)
+        
+        ks5.removeAll()
+        ks10.removeAll()
+        ks20.removeAll()
         let length = nodes.count
         var i:Int = 0
         while(i < length){

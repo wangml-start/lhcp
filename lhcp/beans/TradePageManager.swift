@@ -74,7 +74,7 @@ class TradePageManager{
     }
     
     func setDatas() {
-        self.group!.calcAverageMACD()
+//        self.group!.calcAverageMACD()
     }
     
     func getLeftDay() -> Int{
