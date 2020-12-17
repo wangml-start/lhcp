@@ -26,6 +26,8 @@ extension StockView{
             }else{
                 self.tradeManager = TradePageManager()
                 self.tradeManager?.klineset = data.klineSet
+                self.startChartInit()
+                print("\(data.klineSet?.stockName) \(data.klineSet?.stockCode) \(data.klineSet?.startDate)")
             }
         }
     }

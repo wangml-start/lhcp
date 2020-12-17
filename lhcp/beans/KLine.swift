@@ -38,4 +38,15 @@ class KLine{
         self.isOpen = true
         self.lastClose = lsclose
       }
+    
+    var state:Int {
+        let delta = open - close
+        if(delta == 0){
+            return 0
+        }else if (delta > 0){
+            return -1
+        }else{
+            return 1
+        }
+    }
 }

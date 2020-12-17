@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainAppView: View {
    
-    @State var selectedTabbar = 0
+    @State var selectedTabbar = 1
     var body: some View {
         VStack {
             TabView(selection: $selectedTabbar) {

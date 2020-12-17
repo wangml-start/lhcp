@@ -24,7 +24,7 @@ class KlineGroup{
     
     func calcMinMax(start: Int , end:Int ) {
         var lastIndex:Int
-        if (end == 0 || end >= nodes.count) {
+        if (end >= nodes.count) {
             lastIndex = nodes.count - 1
         } else {
             lastIndex = end
@@ -38,7 +38,6 @@ class KlineGroup{
         
         var i:Int = start
         while(i <= lastIndex){
-            i += 1
             let entry:KLine  = nodes[i]
             if (entry.low < mYMin) {
                 mYMin = entry.low
@@ -68,6 +67,7 @@ class KlineGroup{
             if(entry.macd < mYMinMacd){
                 mYMinMacd = entry.macd
             }
+            i += 1
         }
     }
     
