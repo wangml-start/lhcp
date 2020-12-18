@@ -52,8 +52,10 @@ struct StockView: View {
             .frame(width:UIScreen.main.bounds.width,height: 40)
             
             if(loadedChart){
-                KLineView(chartData: tradeManager!.group!)
+                KLineView(chartPts: self.calcLinePoints(),
+                          linePts: self.calcPriceLines())
                 .frame(height: UIScreen.main.bounds.height * KLineStyle.chartViewRate)
+                    .background(MyColor.div_white)
             }
             
             Spacer()

@@ -33,6 +33,10 @@
 		565FB14B257DE02D0042D696 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565FB14A257DE02D0042D696 /* LoginView.swift */; };
 		565FB153257DE05D0042D696 /* ForgetPwsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565FB152257DE05D0042D696 /* ForgetPwsView.swift */; };
 		566465EE2580BBF200EFCCAA /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566465ED2580BBF200EFCCAA /* ColorSet.swift */; };
+		566924B7258C8664008773E6 /* SingleK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566924B6258C8664008773E6 /* SingleK.swift */; };
+		566924BC258C868D008773E6 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566924BB258C868D008773E6 /* VolumeView.swift */; };
+		566924C1258C86B5008773E6 /* AverageLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566924C0258C86B5008773E6 /* AverageLine.swift */; };
+		566924C6258C86F1008773E6 /* MacdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566924C5258C86F1008773E6 /* MacdView.swift */; };
 		56EA7DB125888E20005B9320 /* StockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EA7DB025888E20005B9320 /* StockView.swift */; };
 		56EA7DC1258898CD005B9320 /* KLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EA7DC0258898CD005B9320 /* KLineView.swift */; };
 		56EA7DC6258898EB005B9320 /* StockHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EA7DC5258898EB005B9320 /* StockHolder.swift */; };
@@ -73,7 +77,6 @@
 		4FF37E4F6ADCF4BCFBE70394 /* Pods-lhcp-lhcpUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lhcp-lhcpUITests.release.xcconfig"; path = "Target Support Files/Pods-lhcp-lhcpUITests/Pods-lhcp-lhcpUITests.release.xcconfig"; sourceTree = "<group>"; };
 		565297722587BFE900012732 /* main_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_1.png; sourceTree = "<group>"; };
 		5655CFE82589159100C23950 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CircleImage.swift; path = lhcp/views/comm/CircleImage.swift; sourceTree = SOURCE_ROOT; };
-		5659679D257E06D300EE2FCA /* NavigationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConfigurator.swift; sourceTree = "<group>"; };
 		565967B0257E0C4000EE2FCA /* CommonUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtil.swift; sourceTree = "<group>"; };
 		565967C0257E39F900EE2FCA /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		565A187E2583535200F338AC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -104,6 +107,10 @@
 		565FB14A257DE02D0042D696 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		565FB152257DE05D0042D696 /* ForgetPwsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPwsView.swift; sourceTree = "<group>"; };
 		566465ED2580BBF200EFCCAA /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
+		566924B6258C8664008773E6 /* SingleK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleK.swift; sourceTree = "<group>"; };
+		566924BB258C868D008773E6 /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
+		566924C0258C86B5008773E6 /* AverageLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageLine.swift; sourceTree = "<group>"; };
+		566924C5258C86F1008773E6 /* MacdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacdView.swift; sourceTree = "<group>"; };
 		56EA7DB025888E20005B9320 /* StockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockView.swift; sourceTree = "<group>"; };
 		56EA7DC0258898CD005B9320 /* KLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLineView.swift; sourceTree = "<group>"; };
 		56EA7DC5258898EB005B9320 /* StockHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockHolder.swift; sourceTree = "<group>"; };
@@ -211,6 +218,10 @@
 				56EA7DB025888E20005B9320 /* StockView.swift */,
 				56EA7DC0258898CD005B9320 /* KLineView.swift */,
 				56EA7DC5258898EB005B9320 /* StockHolder.swift */,
+				566924B6258C8664008773E6 /* SingleK.swift */,
+				566924BB258C868D008773E6 /* VolumeView.swift */,
+				566924C0258C86B5008773E6 /* AverageLine.swift */,
+				566924C5258C86F1008773E6 /* MacdView.swift */,
 			);
 			path = trianItems;
 			sourceTree = "<group>";
@@ -223,7 +234,7 @@
 			path = res;
 			sourceTree = "<group>";
 		};
-		565C34A02587AC5800A202CF /* comp */ = {
+		565C34A02587AC5800A202CF /* comm */ = {
 			isa = PBXGroup;
 			children = (
 				5655CFE82589159100C23950 /* CircleImage.swift */,
@@ -261,7 +272,6 @@
 				565A187D2583532100F338AC /* models */,
 				56EA7DF92588DA71005B9320 /* beans */,
 				565A187C258352F200F338AC /* views */,
-				565FB157257DE0B00042D696 /* comp */,
 				565FB116257DDF060042D696 /* AppDelegate.swift */,
 				565FB118257DDF060042D696 /* SceneDelegate.swift */,
 				565FB11C257DDF090042D696 /* Assets.xcassets */,
@@ -589,13 +599,13 @@
 			files = (
 				565FB153257DE05D0042D696 /* ForgetPwsView.swift in Sources */,
 				565E5C632586122200154186 /* TrainView.swift in Sources */,
-				565FB159257DE10C0042D696 /* CTextField.swift in Sources */,
 				565FB117257DDF060042D696 /* AppDelegate.swift in Sources */,
 				565FB119257DDF060042D696 /* SceneDelegate.swift in Sources */,
+				566924BC258C868D008773E6 /* VolumeView.swift in Sources */,
 				56EA7E332588E84C005B9320 /* MacdCalcutor.swift in Sources */,
 				565C34932587AA6400A202CF /* ImageStore.swift in Sources */,
 				565E5C5E2586120500154186 /* DiscussView.swift in Sources */,
-				565967AB257E07C600EE2FCA /* SystemColors.swift in Sources */,
+				566924C6258C86F1008773E6 /* MacdView.swift in Sources */,
 				56EA7DEB2588D545005B9320 /* StockDetail.swift in Sources */,
 				56EA7DE32588B28F005B9320 /* ToastView.swift in Sources */,
 				565CA8DF2580E3EB009991CE /* AESUtil.swift in Sources */,
@@ -610,12 +620,13 @@
 				566465EE2580BBF200EFCCAA /* ColorSet.swift in Sources */,
 				565FB14B257DE02D0042D696 /* LoginView.swift in Sources */,
 				56EA7DF52588D9B7005B9320 /* TradePageManager.swift in Sources */,
+				566924B7258C8664008773E6 /* SingleK.swift in Sources */,
 				565967C1257E39F900EE2FCA /* LoginService.swift in Sources */,
 				565A18872583590E00F338AC /* ReceiveData.swift in Sources */,
 				565E5C682586123400154186 /* MySettingView.swift in Sources */,
 				565E5C59258610B600154186 /* MainAppView.swift in Sources */,
+				566924C1258C86B5008773E6 /* AverageLine.swift in Sources */,
 				56EA7E2B2588E529005B9320 /* KLine.swift in Sources */,
-				5659679E257E06D300EE2FCA /* NavigationConfigurator.swift in Sources */,
 				56EA7DC6258898EB005B9320 /* StockHolder.swift in Sources */,
 				565FB11B257DDF060042D696 /* ContentView.swift in Sources */,
 				5655CFE92589159100C23950 /* CircleImage.swift in Sources */,
