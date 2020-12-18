@@ -37,6 +37,8 @@
 		566924BC258C868D008773E6 /* VolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566924BB258C868D008773E6 /* VolumeView.swift */; };
 		566924C1258C86B5008773E6 /* AverageLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566924C0258C86B5008773E6 /* AverageLine.swift */; };
 		566924C6258C86F1008773E6 /* MacdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566924C5258C86F1008773E6 /* MacdView.swift */; };
+		566924CB258CA4CD008773E6 /* SettingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566924CA258CA4CD008773E6 /* SettingItem.swift */; };
+		566924D8258CD256008773E6 /* SettledAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566924D7258CD256008773E6 /* SettledAccount.swift */; };
 		56EA7DB125888E20005B9320 /* StockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EA7DB025888E20005B9320 /* StockView.swift */; };
 		56EA7DC1258898CD005B9320 /* KLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EA7DC0258898CD005B9320 /* KLineView.swift */; };
 		56EA7DC6258898EB005B9320 /* StockHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EA7DC5258898EB005B9320 /* StockHolder.swift */; };
@@ -111,6 +113,8 @@
 		566924BB258C868D008773E6 /* VolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeView.swift; sourceTree = "<group>"; };
 		566924C0258C86B5008773E6 /* AverageLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AverageLine.swift; sourceTree = "<group>"; };
 		566924C5258C86F1008773E6 /* MacdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacdView.swift; sourceTree = "<group>"; };
+		566924CA258CA4CD008773E6 /* SettingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItem.swift; sourceTree = "<group>"; };
+		566924D7258CD256008773E6 /* SettledAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettledAccount.swift; sourceTree = "<group>"; };
 		56EA7DB025888E20005B9320 /* StockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockView.swift; sourceTree = "<group>"; };
 		56EA7DC0258898CD005B9320 /* KLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KLineView.swift; sourceTree = "<group>"; };
 		56EA7DC5258898EB005B9320 /* StockHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockHolder.swift; sourceTree = "<group>"; };
@@ -341,6 +345,8 @@
 				56EA7DF42588D9B7005B9320 /* TradePageManager.swift */,
 				56EA7DFA2588DAB3005B9320 /* KlineGroup.swift */,
 				56EA7E2A2588E529005B9320 /* KLine.swift */,
+				566924CA258CA4CD008773E6 /* SettingItem.swift */,
+				566924D7258CD256008773E6 /* SettledAccount.swift */,
 			);
 			path = beans;
 			sourceTree = "<group>";
@@ -602,6 +608,7 @@
 				565FB117257DDF060042D696 /* AppDelegate.swift in Sources */,
 				565FB119257DDF060042D696 /* SceneDelegate.swift in Sources */,
 				566924BC258C868D008773E6 /* VolumeView.swift in Sources */,
+				566924CB258CA4CD008773E6 /* SettingItem.swift in Sources */,
 				56EA7E332588E84C005B9320 /* MacdCalcutor.swift in Sources */,
 				565C34932587AA6400A202CF /* ImageStore.swift in Sources */,
 				565E5C5E2586120500154186 /* DiscussView.swift in Sources */,
@@ -616,6 +623,7 @@
 				565C348B2587A8B500A202CF /* MainRow.swift in Sources */,
 				565CA8DA2580D127009991CE /* NetworkManager.swift in Sources */,
 				56EA7DCB25889A19005B9320 /* StockService.swift in Sources */,
+				566924D8258CD256008773E6 /* SettledAccount.swift in Sources */,
 				565967B1257E0C4000EE2FCA /* CommonUtil.swift in Sources */,
 				566465EE2580BBF200EFCCAA /* ColorSet.swift in Sources */,
 				565FB14B257DE02D0042D696 /* LoginView.swift in Sources */,

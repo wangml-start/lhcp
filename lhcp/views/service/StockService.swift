@@ -17,6 +17,24 @@ extension StockView{
         }
     }
     
+    func loadKAccount(){
+        var params:[String: AnyObject] = [:]
+        params["train_type"] = self.trainType as AnyObject
+        NetworkManager.shared.requestGet(action: "/stock/account_info", parameters: params) { data in
+            if(data.status == -1){
+                self.showTip = true
+                self.tips = data.error ?? ""
+            }else{
+                let settle = data.settledAccount!
+                DispatchQueue.main.async {
+                    self.holderData.totAmt = settle.cashAmt
+                    self.holderData.avaiAmt = settle.cashAmt
+                    self.holderData.initTotAmt = settle.cashAmt
+                }
+            }
+        }
+    }
+    
     func loadKline(){
         let params:[String: AnyObject] = [:]
         NetworkManager.shared.requestGet(action: self.getAction(), parameters: params) { data in
@@ -38,6 +56,7 @@ extension StockView{
         }
     }
     
+    /*计算Kline在屏幕上的坐标*/
     func calcLinePoints() -> [KlinePoints] {
         let viewHeight = UIScreen.main.bounds.height * KLineStyle.chartViewRate
         let chartHeight = viewHeight * KLineStyle.chartRate
@@ -61,7 +80,7 @@ extension StockView{
         let priceDelta = self.tradeManager!.group!.mYMax - self.tradeManager!.group!.mYMin
         let punit = (chartHeight-KLineStyle.chartSpace*2) / CGFloat(priceDelta)
         let vunit = (volmeHeight-KLineStyle.volSpace*2) / CGFloat(self.tradeManager!.group!.mMaxYVolume)
-        let macdDelta = self.tradeManager!.group!.mYMax - self.tradeManager!.group!.mYMin
+        let macdDelta = self.tradeManager!.group!.mYMaxMacd - self.tradeManager!.group!.mYMinMacd
         let munit = (macdHeight-KLineStyle.macdSpace*2) / CGFloat(macdDelta)
         
         for (nIndex, node) in self.tradeManager!.group!.nodes.enumerated() {
@@ -88,7 +107,7 @@ extension StockView{
                 macdBPt: CGPoint(x: startx + CGFloat(half), y: CGFloat(self.tradeManager!.group!.mYMaxMacd) * munit + macdY+KLineStyle.macdSpace),
                 macdState: node.macd >= 0 ? 1 : -1
             )
-            
+
             //均线
             if(node.avg5 != -1){
                 kp.line5Pt = CGPoint(x: startx + CGFloat(half),
@@ -108,6 +127,7 @@ extension StockView{
         return pts
     }
     
+    /*计算价格线坐标*/
     func calcPriceLines() -> [PriceLines] {
         let viewHeight = UIScreen.main.bounds.height * KLineStyle.chartViewRate
         let chartHeight = viewHeight * KLineStyle.chartRate

@@ -11,4 +11,9 @@ class Constants {
     
     public static let OPEN:String = "OPEN"
     public static let CLOSE:String = "CLOSE"
+    
+    public static let brokerRate:CFloat = 0.00025
+    public static let yinhuaRate:CFloat = 0.001
+    public static let guohuRate:CFloat = 0.001
+
 }

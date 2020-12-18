@@ -13,6 +13,7 @@ struct ReceiveData: Hashable, Codable {
     var recordId:Int?
     var user:User?
     var klineSet:KlineSet?
+    var settledAccount:SettledAccount?
     
 }
 

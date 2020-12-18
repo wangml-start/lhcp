@@ -59,9 +59,9 @@ struct TrainView: View {
     func getDestination(item:MainItem) -> AnyView {
         switch item.id {
         case 1:
-            return AnyView(StockView(trainType: Constants.LEADING_STRATEGY))
+            return AnyView(StockView(trainType: Constants.LEADING_STRATEGY, holderData: HolderData(trainType: Constants.LEADING_STRATEGY)))
         case 2:
-            return AnyView(StockView(trainType: Constants.NORMAL_STRATEGY))
+            return AnyView(StockView(trainType: Constants.NORMAL_STRATEGY, holderData: HolderData(trainType: Constants.LEADING_STRATEGY)))
         default:
             return AnyView(Text("None"))
         }

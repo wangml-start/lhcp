@@ -18,6 +18,7 @@ struct StockView: View {
     @State var closeRate:String = "4.56%"
     
     @State var tradeManager:TradePageManager?
+    @State var holderData:HolderData
     @State var openStatus:Int = 0
     @State var closeStatus:Int = 0
     @State var tips:String = ""
@@ -25,6 +26,7 @@ struct StockView: View {
     @State var loadedChart:Bool = false
     @State var loadedAcc:Bool = false
     var font = FontSet.font12
+
     
     var body: some View {
         VStack {
@@ -55,7 +57,9 @@ struct StockView: View {
                 KLineView(chartPts: self.calcLinePoints(),
                           linePts: self.calcPriceLines())
                 .frame(height: UIScreen.main.bounds.height * KLineStyle.chartViewRate)
-                    .background(MyColor.div_white)
+                    //.background(MyColor.div_white)
+                Divider()
+                StockHolder(data: $holderData)
             }
             
             Spacer()
@@ -64,6 +68,7 @@ struct StockView: View {
             self.showTip.toggle()
             self.tips = "正在请求数据。。。"
             self.loadKline()
+            self.loadKAccount()
         }
         //        .navigationBarHidden(true)
         .toast(isShow: $showTip, info: tips)
@@ -84,6 +89,6 @@ struct StockView: View {
 
 struct StockView_Previews: PreviewProvider {
     static var previews: some View {
-        StockView(trainType: Constants.NORMAL_STRATEGY)
+        StockView(trainType: Constants.NORMAL_STRATEGY, holderData: HolderData(trainType: Constants.NORMAL_STRATEGY))
     }
 }

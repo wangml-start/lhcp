@@ -77,21 +77,27 @@ struct KLineView: View {
                 Text(linePts[index].price)
                     .font(FontSet.font10)
                     .offset(x: linePts[index].endPt.x - 20, y: (index == 4) ? linePts[index].endPt.y-15 : linePts[index].endPt.y+2)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.black)
             }
+           
+            Text("VOL")
+                .font(FontSet.font10)
+                .offset(x: linePts[0].endPt.x - 30, y: geometry.size.height * 0.6)
+                .foregroundColor(.black)
+            Text("MACD")
+                .font(FontSet.font10)
+                .offset(x: linePts[0].endPt.x - 30, y: geometry.size.height * 0.8)
+                .foregroundColor(.black)
             
             //绘制KLine
             ForEach(0..<chartPts.count) { index in
                 SingelK(pts: chartPts[index])
-                
                 //均线
                 if(index > 0){
                     AverageLine(pts: chartPts[index], lastPts: chartPts[index-1])
                 }
-                
                 //成交量
                 VolumeView(pts: chartPts[index])
-                
                 //macd
                 if(index > 0){
                     MacdView(pts: chartPts[index], lastPts: chartPts[index-1])
