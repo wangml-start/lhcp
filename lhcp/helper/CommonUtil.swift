@@ -37,7 +37,7 @@ struct CommonUtil{
     }
     
     static func getHalfSW(_ text:String) -> CGFloat {
-        let font:UIFont = UIFont.init(name: "PingFangSC-Regular", size: 12)!
+        let font:UIFont = UIFont.init(name: "System", size: 12)!
         let nsText: NSString = NSString(string: text)
         let size:CGSize = CGSize(width: UIScreen.main.bounds.width, height: 0)
         let options:NSStringDrawingOptions =  NSStringDrawingOptions.usesFontLeading
